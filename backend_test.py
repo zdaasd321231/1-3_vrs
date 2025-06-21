@@ -310,8 +310,8 @@ class VNCManagementAPITest(unittest.TestCase):
         self.assertEqual(response.headers["Content-Type"], "image/svg+xml")
         self.assertIn("<svg", response.text)
         
-        # Verify screenshot contains connection info
-        self.assertIn(self.connection_id, response.text)
+        # Verify screenshot contains connection name instead of ID
+        self.assertIn(self.test_connection_name, response.text)
         
         print("✅ VNC screenshot test passed")
 
