@@ -149,15 +149,18 @@ backend:
           comment: "Verified WebSocket endpoints for VNC proxy and file manager are properly implemented. Tested system info endpoint which confirms WebSocket features are enabled and connection tracking is functional. Full WebSocket client testing would require browser integration."
   - task: "PowerShell Installer Generation"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "PowerShell script generation for TightVNC installation with auto-configuration. Includes download, installation, registry setup, and server registration."
+        - working: true
+          agent: "testing"
+          comment: "Tested PowerShell installer generation endpoint. The script correctly includes TightVNC setup, installation key, VNC password configuration, and machine registration with the management server. Script content is properly formatted and returned as a downloadable file."
 
 frontend:
   - task: "VNC Dashboard Interface"
